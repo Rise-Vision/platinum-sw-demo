@@ -1,0 +1,23 @@
+{
+  "name": "platinum-sw-demo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Rise-Vision/platinum-sw-demo",
+  "authors": [
+    "Stuart Lees <stuartlees@gmail.com>"
+  ],
+  "description": "A step by step demonstration of using the Polymer platinum-sw service worker web component",
+  "keywords": [
+    "web components",
+    "service workers",
+    "Rise Vision"
+  ],
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "platinum-sw": "^1.3.0"
+  }
+}

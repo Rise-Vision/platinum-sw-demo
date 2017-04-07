@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>platinum-sw Demo</title>
+
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/platinum-sw/platinum-sw-elements.html">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!-- Lato from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+</head>
+<body>
+
+<!-- Register service worker and configure cache -->
+<platinum-sw-register
+  auto-register
+  clients-claim
+  skip-waiting
+  reload-on-install>
+  <platinum-sw-cache
+    default-cache-strategy="networkFirst"
+    precache='["images/image-four.jpg"]'></platinum-sw-cache>
+</platinum-sw-register>
+
+<header>
+  <div class="wrapper">
+    <nav>
+      <ul>
+        <li><a href="">Work</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Media</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="work">
+  <p>A selection of</p>
+  <h1>Portfolio work</h1>
+  <div class="wrapper">
+    <ul class="clearfix">
+      <li>
+        <figure id="precacheTest">
+          <img src="images/image-one.png" alt="">
+          <figcaption>Image 1</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="images/image-two.png" alt="">
+          <figcaption>Image 2</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="images/image-three.png" alt="">
+          <figcaption>Image 3</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="about">
+  <p>A little bit</p>
+  <h2>About me</h2>
+  <p class="text-about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, delectus? Magni labore reiciendis, ratione at consequuntur autem doloribus pariatur beatae et, explicabo architecto! Animi culpa omnis quis qui repudiandae eaque id placeat. Soluta esse sapiente quod, earum, aut ipsum qui.</p>
+</section>
+<section class="media">
+  <ul class="clearfix">
+    <li><a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+    <li><a href="http://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+    <li><a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  </ul>
+  <p>Copyright 2017. All Rights Reserved</p>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+  // toggle image source with precached resource "image-four.jpg"
+  $("#precacheTest").click(function() {
+    var src = $(this).find("img").attr("src");
+    $(this).find("img").attr("src", (src.indexOf("image-one") > -1) ? "images/image-four.jpg" : "images/image-one.png");
+  });
+
+</script>
+</body>
+</html>
