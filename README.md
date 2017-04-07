@@ -56,9 +56,9 @@ First, `<platinum-sw-register>` is required to be the parent element which handl
 
 You can use the following attributes to configure the registration behavior:
 
-- `skip-waiting` and `clients-claim` work together to ensure that the service worker we register controls our pages as soon as possible.
-- `auto-register` means that the registration will be performed automatically by virtue of including the element in our page.
-- `reload-on-install` will cause our web page to reload itself the very first time our service worker is installed. This will normally be imperceptible to your users, and ensures that the runtime caching the service worker performs will get a chance to cache all of the page's resources, even those that were already loaded before the service worker was installed.
+- `skip-waiting` and `clients-claim` work together to ensure that the service worker you register controls your pages as soon as possible.
+- `auto-register` means that the registration will be performed automatically by virtue of including the element in your page.
+- `reload-on-install` will cause your web page to reload itself the very first time your service worker is installed. This will normally not be noticeable to your users, and ensures that the runtime caching the service worker performs will get a chance to cache all of the page's resources, even those that were already loaded before the service worker was installed.
 
 Next you use `platinum-sw-cache` as a child element to configure the caching behavior. One particularly useful attribute is `precache` which you can use to provide a list of URLs that are always precached as soon as the service worker is installed. This is useful for URLs that that wouldn't necessarily be picked up by runtime caching. 
 
@@ -100,7 +100,9 @@ Once the basic HTML is in place you can upload your files to your web server. To
 ### Step 5: Inspect via Dev Tools
 
 
-Visit your web page in Chrome browser. Open Developer Tools and choose the Application tab. In the left panel choose Service Workers. You should see your service worker installed, activated, and running, similar to the below:
+For testing purposes open a new Incognito Window in Chrome. When you open in Incognito, no previous service workers persist and no cache storage persists either. This is a good way to test out a first time install of your service worker. 
+
+Open Developer Tools and choose the Application tab. In the left panel choose Service Workers. You should see your service worker installed, activated, and running, similar to the below:
 
 ![Screenshot 1](https://content.screencast.com/users/stulees/folders/Snagit/media/475ab536-8309-4ad7-9a61-893bc45b9d90/2017-04-06_17-55-40.png)
 
@@ -108,7 +110,11 @@ Now in the left panel choose the Cache Storage with your service worker identifi
 
 ![Screenshot 2](https://content.screencast.com/users/stulees/folders/Snagit/media/f41863ce-b7b3-453d-be95-f576af727533/2017-04-06_18-04-20.png)
 
-Now try turning off your network and reloading the page. You should see your page running offline the same as it did with network. 
-
 For more detailed information on debugging service workers visit [Debugging Service Workers](https://developers.google.com/web/fundamentals/getting-started/codelabs/debugging-service-workers/)
+
+### Step 6: Go Offline
+
+
+Now try turning off your network and reloading the page. You should see your page running offline the same as it did with network. If you configured precaching any resources, they should be served via your service worker. 
+
 
