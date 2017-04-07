@@ -22,7 +22,7 @@ You can adjust the path to `service-worker.js` if your project has its Polymer e
 
 See [here](https://github.com/PolymerElements/platinum-sw#considerations) for additional considerations when using Platinum SW components.
 
-##Steps
+## Steps
 
 
 ### Step 1: Install platinum-sw package
