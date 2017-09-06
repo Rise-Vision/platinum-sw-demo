@@ -117,4 +117,11 @@ For more detailed information on debugging service workers visit [Debugging Serv
 
 Now try turning off your network and reloading the page. You should see your page running offline the same as it did with network. If you configured precaching any resources, they should be served via your service worker. 
 
+### Step 7: Rise Vision Presentations & Scheduled Items
+
+When you've confirmed your service workers are registering and activating correctly in your web page, the page is ready for use in a Rise Vision presentation. Whether you target your page in a scheduled playlist item (URL) or via Web Page Widget in a presentation, the service workers will register and activate as expected. However, please note the following when testing:
+
+- When testing in Preview from the Apps Editor, service workers will not register and activate. This is because the Preview page is not served over https and must be served over http. You should test your web page directly in the browser as mentioned in Steps 5 & 6 to confirm your service worker setup is working correctly.
+- When testing in Rise Player, service workers will register and activate as expected. 
+
 
